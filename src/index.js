@@ -11,5 +11,5 @@ app.get("/", (req,res)=>{
 })
 
 app.listen(CONTAINER_PORT, ()=>{
-    console.log("Storypot: app running in port " + process.env.APP_PORT);
+    console.log("Storypot app running in port " + process.env.APP_PORT);
 })
