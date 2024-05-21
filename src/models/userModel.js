@@ -1,38 +1,38 @@
 import mongoose from "mongoose";
 
-const userSchema = new mongoose.Schema({
+const projectSchema = new mongoose.Schema({
 
-    email_user:{
+    email_project:{
         type:String,
         required: true,
         unique: true
     },
 
-    username_user : {
+    username_project:{
         type: String,
         required: true,
         unique:  true
     },
 
-    password_user:{
+    password_project:{
         type: String,
         required:true
     },
 
-    role_user:{
+    role_project:{
         type: String,
         enum:["reader", "producer", "editor"],
         default: "reader"
     },
     
-    resource_user: [
+    resource_project: [
         {
             type: mongoose.Schema.ObjectId,
             ref:"resource"
         }
     ],
 
-    project_user: [
+    project_project: [
         {
             type: mongoose.Schema.ObjectId,
             ref:"project"
@@ -41,6 +41,6 @@ const userSchema = new mongoose.Schema({
 
 });
 
-const userModel = mongoose.model("user", userSchema);
+const projectModel = mongoose.model("project", projectSchema);
 
-export default userModel;   
+export default projectModel;   
