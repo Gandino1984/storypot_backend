@@ -7,17 +7,17 @@ const projectSchema = new mongoose.Schema({
         required: true
     },
 
+    description_project:{
+        type: String
+    },
+
     resources : [
         {
             type: mongoose.Schema.ObjectId,
-            ref:"user"
+            ref:"resource"
         }
-    ],
-
-    description_project:{
-        type: String
-    }
-
+    ]
+   
 });
 
 const projectModel = mongoose.model("project", projectSchema);
