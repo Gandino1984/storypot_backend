@@ -2,24 +2,24 @@ import mongoose from "mongoose";
 
 const userSchema = new mongoose.Schema({
 
-    email:{
+    email_user:{
         type:String,
         required: true,
         unique: true
     },
 
-    username : {
+    username_user : {
         type: String,
         required: true,
         unique:  true
     },
 
-    password:{
+    password_user:{
         type: String,
         required:true
     },
 
-    role:{
+    role_user:{
         type: String,
         enum:["reader", "producer", "editor"],
         default: "reader"
