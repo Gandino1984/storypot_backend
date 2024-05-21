@@ -9,7 +9,7 @@ const projectSchema = new mongoose.Schema({
 
     description_project:{
         type: String
-    },
+    }
 
 });
 
