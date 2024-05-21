@@ -14,6 +14,6 @@ const productionSchema = new mongoose.Schema({
 
 });
 
-const productionModel = mongoose.model("team", productionSchema);
+const productionModel = mongoose.model("production", productionSchema);
 
 export default productionModel;   
