@@ -7,6 +7,13 @@ const projectSchema = new mongoose.Schema({
         required: true
     },
 
+    resources : [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref:"user"
+        }
+    ],
+
     description_project:{
         type: String
     }
