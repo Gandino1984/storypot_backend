@@ -23,7 +23,21 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum:["reader", "producer", "editor"],
         default: "reader"
-    } 
+    },
+    
+    resource_user: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref:"resource"
+        }
+    ],
+
+    project_user: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref:"project"
+        }
+    ]
 
 });
 

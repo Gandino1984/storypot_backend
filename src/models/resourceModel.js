@@ -23,6 +23,20 @@ const resourceSchema = new mongoose.Schema({
         type: String
     },
 
+    users_resource: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref:"user"
+        }
+    ],
+
+    project_resource: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref:"project"
+        }
+    ]
+
 });
 
 const resourceModel = mongoose.model("resource", resourceSchema);
