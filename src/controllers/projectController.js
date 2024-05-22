@@ -32,7 +32,7 @@ const create = async(data) =>{
 
 const update = async(id,data)=>{
     try {
-        const project = await projectModel.findByIdAndUpdate();
+        const project = await projectModel.findByIdAndUpdate(id,data);
         return project;
     } catch (error) {
         console.error(error);
@@ -65,7 +65,7 @@ const addUser = async(projectId, userId)=>{
     }
 }
 
-const removeUser = async()=>{
+const removeUser = async(projectId, userId)=>{
     try {
         const project = await getById(projectId);
         if(!project.users_project.includes(userId)){
