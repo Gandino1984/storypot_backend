@@ -98,44 +98,13 @@ const remove = async(id) =>{
     }
 }
 
-const addUser = async(projectId, userId)=>{
-    try {
-        const project = await getById(projectId);
-        if(!project.fkUsers.includes(userId)){
-            project.fkUsers.push(userId);
-            await project.save();
-            return project;
-        }
-
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
-}
-
-const removeUser = async(projectId, userId)=>{
-    try {
-        const project = await getById(projectId);
-        if(!project.fkUsers.includes(userId)){
-            project.fkUsers = project.fkUsers.filter(u=>u!==userId);
-            await project.save();
-            return project;
-        }
-
-    } catch (error) {
-        console.error(error);
-        return null;
-    }   
-}
 
 export const functions = {
     getAll,
     getById,
     create,
     update,
-    remove,
-    addUser,
-    removeUser
+    remove
 }
 
 export default functions;
