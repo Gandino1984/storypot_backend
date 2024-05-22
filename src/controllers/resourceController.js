@@ -1,9 +1,10 @@
+import resourceModel from "../models/resourceModel.js";
 import projectModel from "../models/projectModel.js";
 
 const getAll = async()=>{
     try {
-        const projects = await projectModel.find();
-        return projects;
+        const resources = await resourceModel.find();
+        return resources;
     } catch(error){
         console.error(error); 
         return [];
@@ -12,8 +13,8 @@ const getAll = async()=>{
 
 const getById = async(id)=>{
     try {
-        const project = await projectModel.findById(id);
-        return project;
+        const resource = await resourceModel.findById(id);
+        return resource;
     } catch (error) {
         console.error(error);
         return null;
@@ -22,8 +23,8 @@ const getById = async(id)=>{
 
 const create = async(data) =>{
     try {
-        const project = await projectModel.create(data);
-        return project;
+        const resource = await resourceModel.create(data);
+        return resource;
     } catch(error){
         console.error(error);
         return null;
@@ -32,8 +33,8 @@ const create = async(data) =>{
 
 const update = async(id,data)=>{
     try {
-        const project = await projectModel.findByIdAndUpdate(id,data);
-        return project;
+        const resource = await resourceModel.findByIdAndUpdate(id,data);
+        return resource;
     } catch (error) {
         console.error(error);
         return null;
@@ -42,8 +43,8 @@ const update = async(id,data)=>{
 
 const remove = async(id) =>{
     try {
-        const project = await projectModel.findByIdAndDelete(id);
-        return project;
+        const resource = await resourceModel.findByIdAndDelete(id);
+        return resource;
     }catch (error) {
         console.error(error);
         return null;

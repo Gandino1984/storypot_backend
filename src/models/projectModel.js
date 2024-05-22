@@ -2,23 +2,23 @@ import mongoose from "mongoose";
 
 const projectSchema = new mongoose.Schema({
 
-    title_project : {
+    title : {
         type: String,
         required: true
     },
 
-    description_project:{
+    description:{
         type: String
     },
 
-    users_project: [
+    fkUsers: [
         {
             type: mongoose.Schema.ObjectId,
             ref:"user"
         }
     ],
 
-    resources_project: [
+    fkResources: [
         {
             type: mongoose.Schema.ObjectId,
             ref:"resource"
