@@ -21,3 +21,11 @@ const update = async (req, res)=>{
     const user = await userController.update(req.params.id, req.body);
     res.json({data:user});
 }
+const functions = {
+    getAll,
+    getById,
+    create,
+    update,
+}
+
+export default functions;
