@@ -10,7 +10,11 @@ const getById = async (req, res)=>{
     res.json({data:user});
 }
 
-//getByProperty???
+const getByProperty=async(req,res)=>{
+    const {property, value} = req.query;
+    const users = await userController.getByProperty(property, value);
+    res.json({data:users});
+}
 
 const create = async (req, res)=>{
     const user = await userController.create(req.body);
@@ -21,11 +25,20 @@ const update = async (req, res)=>{
     const user = await userController.update(req.params.id, req.body);
     res.json({data:user});
 }
+
+const remove = async (req, res)=>{
+ const id = req.params.id;
+ const user = await userController.remove(id);
+ res.json({data:user});
+}
+
 const functions = {
     getAll,
     getById,
     create,
     update,
+    getByProperty,
+    remove
 }
 
 export default functions;
