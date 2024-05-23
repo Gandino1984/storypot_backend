@@ -5,7 +5,7 @@ import userRouter from "./userRouter.js";
 const router = Router();
 
 router.get("/", (req, res) => {
-    res.json("Storypot API says hi!");
+    res.json({message: "Storypot API endpoint"});
 })
 
 router.use("/users", userRouter);
