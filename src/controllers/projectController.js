@@ -56,7 +56,6 @@ const create = async (data) => {
         // Create a new project in the database with the given data
         const project = await projectModel.create(data);
         //if
-        project.fkOwner.push(data.fkOwner);
         project.fkUsers.push(data.fkOwner);
         // Return the newly created project
         return project;
