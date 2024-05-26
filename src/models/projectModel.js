@@ -11,19 +11,20 @@ const projectSchema = new mongoose.Schema({
         type: String
     },
 
-    fkUsers: [
+    
+    fkOwner: [
         {
             type: mongoose.Schema.ObjectId,
             ref:"user"
         }
     ],
 
-    fkResources: [
-        {
-            type: mongoose.Schema.ObjectId,
-            ref:"resource"
-        }
-    ]
+    // fkResources: [
+    //     {
+    //         type: mongoose.Schema.ObjectId,
+    //         ref:"resource"
+    //     }
+    // ]
    
 });
 
