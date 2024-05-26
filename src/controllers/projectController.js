@@ -55,6 +55,8 @@ const create = async (data) => {
     try {
         // Create a new project in the database with the given data
         const project = await projectModel.create(data);
+        //if
+        project.fkUsers.push(data.fkOwner);
         // Return the newly created project
         return project;
     } catch (error) {
@@ -134,6 +136,9 @@ const addUser = async (projectId, userId) => {
             // Return the updated project
             return project;
         }
+        else{
+            console.log("User is already in project");
+        }
     } catch (error) {
         // Log the error and return null
         console.error(error);
@@ -179,6 +184,9 @@ const removeUser = async (projectId, userId) => {
 
             // Return the updated project
             return project;
+        }
+        else{
+            console.log("User is not in project");
         }
     } catch (error) {
         // Log the error and return null
