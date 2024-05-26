@@ -18,12 +18,12 @@ const projectSchema = new mongoose.Schema({
         }
     ],
 
-    fkResources: [
-        {
-            type: mongoose.Schema.ObjectId,
-            ref:"resource"
-        }
-    ]
+    // fkResources: [
+    //     {
+    //         type: mongoose.Schema.ObjectId,
+    //         ref:"resource"
+    //     }
+    // ]
    
 });
 

@@ -143,6 +143,20 @@ const addUser = async (projectId, userId) => {
 };
 
 
+const getByProperty = async (property, value) => {
+    try {
+        // Find the user in the database by their property
+        const user = await projectModel.findOne({ [property]: value });
+        return user;
+    } catch (error) {
+        // Log any errors that occur
+        console.error(error);
+        // Return null if there's an error
+        return null;
+    }
+}
+
+
 /**
  * Removes a user from a project in the database.
  *
@@ -182,7 +196,8 @@ const functions = {
     update,
     remove,
     addUser,
-    removeUser
+    removeUser,
+    getByProperty
 };
 
 export default functions;
