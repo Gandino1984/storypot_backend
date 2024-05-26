@@ -55,8 +55,6 @@ const create = async (data) => {
     try {
         // Create a new project in the database with the given data
         const project = await projectModel.create(data);
-        project.fkOwner.push(data.owner);
-        await project.save(); // Save the newly created project.
         // Return the newly created project
         return project;
     } catch (error) {
@@ -120,10 +118,8 @@ const remove = async (id) => {
  * @return {Promise<Object|null>} The updated project object if successful, or null if there was an error.
  * @throws {Error} If there is an error adding the user to the project.
  */
-const addUser = async (req, res) => {
+const addUser = async (projectId, userId) => {
     try {
-    const projectId = req.params.id;
-    const userId = req.body.userId;
         // Retrieve the project from the database by its ID
         const project = await getById(projectId);
 
@@ -136,10 +132,7 @@ const addUser = async (req, res) => {
             await project.save();
 
             // Return the updated project
-            res.json({data:project});
-        }
-        else{
-            alert("El usuario ya pertenece al proyecto!")
+            return project;
         }
     } catch (error) {
         // Log the error and return null
