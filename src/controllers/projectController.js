@@ -55,7 +55,8 @@ const create = async (data) => {
     try {
         // Create a new project in the database with the given data
         const project = await projectModel.create(data);
-
+        //if
+        project.fkUsers.push(data.fkOwner);
         // Return the newly created project
         return project;
     } catch (error) {
@@ -135,12 +136,29 @@ const addUser = async (projectId, userId) => {
             // Return the updated project
             return project;
         }
+        else{
+            console.log("User is already in project");
+        }
     } catch (error) {
         // Log the error and return null
         console.error(error);
         return null;
     }
 };
+
+
+const getByProperty = async (property, value) => {
+    try {
+        // Find the user in the database by their property
+        const user = await projectModel.findOne({ [property]: value });
+        return user;
+    } catch (error) {
+        // Log any errors that occur
+        console.error(error);
+        // Return null if there's an error
+        return null;
+    }
+}
 
 
 /**
@@ -167,6 +185,9 @@ const removeUser = async (projectId, userId) => {
             // Return the updated project
             return project;
         }
+        else{
+            console.log("User is not in project");
+        }
     } catch (error) {
         // Log the error and return null
         console.error(error);
@@ -182,7 +203,8 @@ const functions = {
     update,
     remove,
     addUser,
-    removeUser
+    removeUser,
+    getByProperty
 };
 
 export default functions;

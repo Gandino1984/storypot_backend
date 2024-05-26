@@ -43,6 +43,19 @@ const getById = async (id) => {
     }
 }
 
+const getByProperty = async (property, value) => {
+    try {
+        // Find the user in the database by their property
+        const user = await userModel.findOne({ [property]: value });
+        return user;
+    } catch (error) {
+        // Log any errors that occur
+        console.error(error);
+        // Return null if there's an error
+        return null;
+    }
+}
+
 
 /**
  * Creates a new user in the database.
@@ -104,7 +117,7 @@ const remove = async (id) => {
         console.error(error);
         // Return null if there was an error
         return null;
-    }
+        getByProperty}
 }
 
 /**
@@ -144,7 +157,9 @@ export const functions = {
      * @param {string} id - The ID of the user to remove.
      * @returns {Promise<Object|null>} The removed user object if successful, or null if there was an error.
      */
-    remove
+    remove,
+
+    getByProperty
 }
 
 

@@ -11,6 +11,13 @@ const projectSchema = new mongoose.Schema({
         type: String
     },
 
+    fkOwner: [
+        {
+            type: mongoose.Schema.ObjectId,
+            ref:"user"
+        }
+    ],
+
     fkUsers: [
         {
             type: mongoose.Schema.ObjectId,
@@ -18,12 +25,12 @@ const projectSchema = new mongoose.Schema({
         }
     ],
 
-    fkResources: [
-        {
-            type: mongoose.Schema.ObjectId,
-            ref:"resource"
-        }
-    ]
+    // fkResources: [
+    //     {
+    //         type: mongoose.Schema.ObjectId,
+    //         ref:"resource"
+    //     }
+    // ]
    
 });
 
