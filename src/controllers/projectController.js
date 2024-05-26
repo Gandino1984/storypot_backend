@@ -120,8 +120,10 @@ const remove = async (id) => {
  * @return {Promise<Object|null>} The updated project object if successful, or null if there was an error.
  * @throws {Error} If there is an error adding the user to the project.
  */
-const addUser = async (projectId, userId) => {
+const addUser = async (req, res) => {
     try {
+    const projectId = req.params.id;
+    const userId = req.body.userId;
         // Retrieve the project from the database by its ID
         const project = await getById(projectId);
 
@@ -134,7 +136,10 @@ const addUser = async (projectId, userId) => {
             await project.save();
 
             // Return the updated project
-            return project;
+            res.json({data:project});
+        }
+        else{
+            alert("El usuario ya pertenece al proyecto!")
         }
     } catch (error) {
         // Log the error and return null
