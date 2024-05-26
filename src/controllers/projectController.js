@@ -55,7 +55,8 @@ const create = async (data) => {
     try {
         // Create a new project in the database with the given data
         const project = await projectModel.create(data);
-
+        project.fkOwner.push(data.owner);
+        await project.save(); // Save the newly created project.
         // Return the newly created project
         return project;
     } catch (error) {

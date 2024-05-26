@@ -11,7 +11,8 @@ const projectSchema = new mongoose.Schema({
         type: String
     },
 
-    fkUsers: [
+    
+    fkOwner: [
         {
             type: mongoose.Schema.ObjectId,
             ref:"user"

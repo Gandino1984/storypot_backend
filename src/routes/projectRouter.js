@@ -8,7 +8,7 @@ router.get("/", projectApiController.getAll);
 router.get("/byproperty", projectApiController.getByProperty);
 router.get("/:id", projectApiController.getById);
 router.post("/", projectApiController.create);
-router.put("/:id", projectApiController.update);
+router.put("/:id/update", projectApiController.update);
 router.delete("/:id", projectApiController.remove);
 router.post("/:id/user", projectApiController.addUser);
 router.delete("/:id/user", projectApiController.removeUser);

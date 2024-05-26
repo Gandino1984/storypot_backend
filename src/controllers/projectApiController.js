@@ -46,7 +46,6 @@ const removeUser = async (req, res)=>{
     res.json({data:project});
 }
 
-//add
 
 const functions = {
     getAll,
