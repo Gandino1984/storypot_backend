@@ -1,11 +1,11 @@
 import projectController from "./projectController.js"
 
-const getAll = async (req, res)=>{
+const getAll = async (req,res)=>{
     const projects = await projectController.getAll();
     res.json({data:projects});
 }
 
-const getById = async (req, res)=>{
+const getById = async (req,res)=>{
     const project = await projectController.getById(req.params.id);
     res.json({data:project});
 }
@@ -16,17 +16,17 @@ const getByProperty=async(req,res)=>{
     res.json({data:project});
 }
 
-const create = async (req, res)=>{
+const create = async (req,res)=>{
     const project = await projectController.create(req.body);
     res.json({data:project});
 }
 
-const update = async (req, res)=>{
+const update = async (req,res)=>{
     const project = await projectController.update(req.params.id, req.body);
     res.json({data:project});
 }
 
-const remove = async (req, res)=>{
+const remove = async (req,res)=>{
  const id = req.params.id;
  const project = await projectController.remove(id);
  res.json({data:project});
